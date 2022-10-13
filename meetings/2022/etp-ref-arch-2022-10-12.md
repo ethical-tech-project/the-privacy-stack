@@ -2,16 +2,19 @@
 
 ## Agenda
 
-1. [Unresolved questions for static virtual members](#unresolved-questions-for-static-virtual-members)
-2. [Parameter null checking](#parameter-null-checking)
+1. [ETP new website launch](#new-etp-website-launch)
 
 ## Quote of the Day
 
 - "You need a cat to sit on your space bar while you hit a reaction button!"
 
 ## Discussion
+
+### New ETP website launch
+
 Disccused the need to get something on Github prior to the site launch on Friday
-##### Conclusion
+
+#### Conclusion
 Make it so :)
 
 
