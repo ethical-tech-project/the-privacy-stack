@@ -1,4 +1,4 @@
-# C# Language Design Meeting for April 6th, 2022
+# Privacy Stack Design Meeting for October 10th, 2022
 
 ## Agenda
 
@@ -16,8 +16,3 @@ Disccused the need to get something on Github prior to the site launch on Friday
 
 #### Conclusion
 Make it so :)
-
-
-
-
-
