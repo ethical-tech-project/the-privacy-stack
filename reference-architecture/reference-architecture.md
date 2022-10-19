@@ -1,7 +1,3 @@
-<style type="text/css">
-    ol { list-style-type: upper-alpha; }
-</style>
-
 # Privacy Stack Reference Architecture v1
 # Problem Statement
 
@@ -12,7 +8,7 @@ Empower technologists to architect, design, build and maintain systems that resp
 # Gathering Requirement
 
 ## In Scope
-<ol>
+<ol style="list-style-type: upper-alpha">
 <li>
 <b>Purpose</b> - Make purpose a ‘first-class citizen’ in the consideration set for processing data through systems to **declare</b> <b>enforce</b> and <b>audit</b> permissions.
 <li><b>Control</b> - Afford data owners the means to control their data through the <b>granting</b> <b>revoking</b> and <b>enforcing</b> of permissions and the ability to execute data <b>control operations</b></li>
