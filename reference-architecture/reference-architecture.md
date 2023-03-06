@@ -4,9 +4,9 @@
 - [Gathering Requirements](#gathering-requirements)
     - [In Scope](#in-scope)
     - [Out of Scope](#out-of-scope)
-    - [Document structure](#document-structure)
-- [Working pieces of a Privacy Stack](#working-pieces-of-a-privacy-stack)
-- [Simple application](#simple-application)
+    - [Document Structure](#document-structure)
+- [Working Pieces of a Privacy Stack](#working-pieces-of-a-privacy-stack)
+- [Simple Application](#simple-application)
     - [Architecture](#architecture)
     - [Privacy Stack System Components](#privacy-stack-system-components)
         - [Data Policies Authoring Service](#data-policies-authoring-service)
@@ -15,17 +15,17 @@
         - [Automated Subject Rights Fulfillment](#automated-subject-rights-fulfillment)
         - [Access Control Authorization Integration](#access-control-authorization-integration)
         - [Data Fortification Tools](#data-fortification-tools)
-- [Advanced application](#advanced-application)
+- [Advanced Application](#advanced-application)
     - [Architecture](#architecture-1)
     - [Privacy Stack System Components](#privacy-stack-system-components-1)
-    - [Permission Propagation to Processors](#permission-propagation-to-processors)
-    - [External Automated Subject Rights Fulfillment](#external-automated-subject-rights-fulfillment)
-- [Processor application](#processor-application)
+        - [Permission Propagation to Processors](#permission-propagation-to-processors)
+        - [External Automated Subject Rights Fulfillment](#external-automated-subject-rights-fulfillment)
+- [Processor Application](#processor-application)
     - [Architecture](#architecture)
     - [Privacy Stack System Components](#privacy-stack-system-components-2)
-    - [Permission Management](#permission-management-1)
-    - [Subject Right Fulfillment Module](#subject-right-fulfillment-module)
-    - [What if data has been aggregated for the processor?](#what-if-data-has-been-aggregated-for-the-processor)
+        - [Permission Management](#permission-management-1)
+        - [Subject Right Fulfillment Module](#subject-right-fulfillment-module)
+        - [Aggregated Data](#aggregated-data)
 - [Glossary](#glossary)
 - [References](#references)
 
@@ -62,7 +62,7 @@ Technical mechanisms to be implemented by all parties who collect, store, and pr
 2. Some topics concern the general security of the system, like the encryption protocols for data at rest or in transit.
 3. Process-oriented strategies that ensure a deployment supports an organization’s legal policies and agreements.
 
-## Document structure
+## Document Structure
 
 The document introduces the Privacy Stack by exploring four architectures that build on one another in complexity. The four archetype architectures are:
 
@@ -118,7 +118,7 @@ In this section (and in the rest of this document), we describe the key terms of
 
     The **effect** of a policy defines the type of access granted to the data in scope. This includes binary access, such as Grant or Deny, and type of access, such as Read or Write. It may also include conditional access. Finally, effects can specify transformations required for the data, such as statistical anonymization techniques like differential privacy and k-anonymization, as well as various cryptography methods like hashing and homomorphic encryption.
 
-    * **example:** analysts at the New York Times have permission to perform SELECT queries on the **`subscribers`** table for the purpose of ANALYTICS but only when consent is granted by the subscriber. An additional effect may describe the necessary transformation of specific fields; for example, the age column must be statistically anonymized using differential privacy.
+    * **example:** analysts at the New York Times have permission to perform SELECT queries on the `subscribers` table for the purpose of ANALYTICS but only when consent is granted by the subscriber. An additional effect may describe the necessary transformation of specific fields; for example, the age column must be statistically anonymized using differential privacy.
 * **data subject right:** originating in GDPR<sup>6</sup> but applies to all users under various privacy regulations. As a user of any service, you have the right to obtain a copy of your information, request deletion of your data, opt out of the sale of your data, etc. Organizations must afford these rights to their users.
     * **example:** the right to access personal data. This right allows users to request a copy of any personal data that an organization holds about them.
 * **controller:** a controller refers to the entity that determines the purpose and means of processing of a user’s personal-data. 
@@ -166,7 +166,7 @@ In this setup, the New York Times is a controller, because it determines the why
 
 
 
-# Simple application
+# Simple Application
 
 
 ## Architecture
@@ -359,7 +359,7 @@ Otherwise known as Privacy Enhancing Technologies (PETs)<sup>8,9,10</sup> , Data
 <br/>
 
 
-# Advanced application
+# Advanced Application
 
 
 ## Architecture
@@ -438,7 +438,7 @@ Similarly, advanced applications need to propagate subject rights requests to th
 <br/>
 <br/>
 
-# Processor application
+# Processor Application
 
 ## Architecture
 
@@ -480,7 +480,8 @@ Again, this API should match the original Data Subject Right API as shown in the
 
 <br/>
 
-### What if data has been aggregated for the processor?
+### Aggregated Data
+
 Suppose that your processor is a machine learning service that trains models. The user has now requested to delete their data. When you pass along this request to the processor, they might respond by saying that they do not have specific data for the user: they only keep the models after training and discard the data. However, the models and their parameters contain information that can be used to re-identify the users to some extent.
 
 This is why in a perfect world, each of the trained models should have the ability to determine if the user has requested their data to be deleted, and if so, whether the model should be discarded or retrained. Organizations have been found in violation of privacy regulations in the past and have been required to remove trained models from production.
