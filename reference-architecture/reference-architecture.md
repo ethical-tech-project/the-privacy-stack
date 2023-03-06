@@ -237,7 +237,7 @@ As shown in this diagram, the initial “consent-getting” flow does the follow
 * **When the consent management service receives this request it:**
     * **Determines user jurisdiction:** the service can determine the user jurisdiction by looking at the IP. The user might also have passed along a more declarative notion of location.
     * **Calls data policies authoring service:** the service calls the **data policies authoring service** to figure out the specific rules for the jurisdiction (what sorts of consent need to be collected).
-    * **Determines applicable purposes for the data: **as different jurisdictions have different rules and regulations about how and why data is collected, an organization may define different purposes for collecting this information.
+    * **Determines applicable purposes for the data:** as different jurisdictions have different rules and regulations about how and why data is collected, an organization may define different purposes for collecting this information.
     * **Ascertains whether this user already consented to the relevant purposes**
     * **If not, renders the consent collection popup**
     * **Collects user consent:** this consent is persisted through a browser storage mechanism (cookie, local/session storage), and is available next time the same user comes to the same website. Storing this information locally facilitates the need for offline interaction and data collection due to network issues, or outages.
@@ -251,6 +251,7 @@ As shown in this diagram, the initial “consent-getting” flow does the follow
 
 As users interact with your organization across their various devices and platforms and a common identifier are not present, the opportunity arises for a user to make consent choices that differ between devices and platforms. When a situation occurs where a user engages with your org using two or more identities, then a conflict may arise between these identity-consent choices.
 
+<br/>
 
 ### Consent Management API Design
 
@@ -309,6 +310,7 @@ To construct your data catalog, you’ll want to follow these steps:
 
 **Output:** data sources with both structural and contextual metadata
 
+<br/>
 
 ### Automated Subject Rights Fulfillment
 
@@ -385,6 +387,7 @@ An advanced application is an application that doesn’t just store and process 
 
 The privacy stack of an advanced application contains all the modules in a simple application, plus a few more that have to do with passing permissions and subject right fulfillment requests to third parties:
 
+<br/>
 
 ### Permission Propagation to Processors
 
